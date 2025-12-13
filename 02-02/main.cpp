@@ -12,7 +12,7 @@ int main() {
 	int hours = 0;
 	int general = 0;
 	int recursive = 0;
-	
+
 	while (general >= recursive) {
 		hours++;
 		printf("%d時間: ", hours);
