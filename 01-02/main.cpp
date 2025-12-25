@@ -47,7 +47,10 @@ int main() {
 	for (size_t i = 0; i < list.size(); ++i) {
 		if (i != 0) { printf(","); }
 		printf("%s", list[i].c_str());
-		if ((i + 1) % 5 == 0) { printf("\n"); } // 5個ごとに改行
+		// 5個ごとに改行
+		if ((i + 1) % 5 == 0) {
+			printf("\n");
+		}
 	}
 
 	return 0;
