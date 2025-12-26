@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <time.h>
 
+typedef bool (*JudgeFn)(int roll);
+
 bool JudgeOdd(int roll) {
 	if (roll % 2 == 1) {
 		return true;
@@ -10,17 +12,37 @@ bool JudgeOdd(int roll) {
 	return false;
 }
 
-void DelayReveal(void (*fn)(int, int), unsigned int delayMs, int roll, int userGuess) {
-
+void Sleep(unsigned int ms) {
+	clock_t start_time = clock();
+	while (clock() - start_time < ms * (CLOCKS_PER_SEC / 1000));
 }
 
-typedef bool (*JudgeFn)(int roll);
+void ShowResult(int roll, int userGuess) {
+	JudgeFn judgeFn = JudgeOdd;
+	if ((judgeFn(roll) == judgeFn(userGuess))) {
+		printf("正解\n");
+	} else {
+		printf("不正解\n");
+	}
+	printf("出た目は%dでした\n", roll);
+}
+
+void DelayReveal(void (*fn)(int, int), unsigned int delayMs, int roll, int userGuess) {
+	fn = ShowResult;
+	// 指定されたミリ秒だけ待機
+	Sleep(delayMs);
+	// 結果を表示
+	fn(roll, userGuess);
+}
 
 int main() {
 	srand((unsigned int)time(NULL));
 
 	char input{};
-	
+
+	// サイコロを振る
+	int roll = rand() % 6 + 1;
+
 	while (true) {
 		printf("半(奇数)ならo,丁(偶数)ならe\n");
 		scanf("%c", &input, 1);
@@ -33,13 +55,9 @@ int main() {
 		}
 	}
 
-	int roll = rand() % 6 + 1;
+	int userGuess = (input == 'o') ? 1 : 0; // oなら1,そうでない(つまりe)なら0
 
-	JudgeFn judgeFn = JudgeOdd;
-
-	if (input == 'o') {
-		
-	}
+	DelayReveal(ShowResult, 3000, roll, userGuess);
 
 	return 0;
 }
