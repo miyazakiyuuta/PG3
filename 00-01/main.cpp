@@ -1,7 +1,7 @@
 #include <iostream>
 
 int main() {
-	char str[] = "ŠØ‘‚ÌH‘ìuƒLƒ€ƒ^ƒNv";
+	char str[] = "éŸ“å›½ã®é£Ÿå“ã€Œã‚­ãƒ ã‚¿ã‚¯ã€";
 	printf("%s", str);
 	return 0;
 }
