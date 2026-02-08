@@ -45,7 +45,7 @@ int main() {
 
 	while (true) {
 		printf("半(奇数)ならo,丁(偶数)ならe\n");
-		scanf("%c", &input, 1);
+		scanf(" %c", &input);
 		if (input == 'o') {
 			break;
 		} else if (input == 'e') {
