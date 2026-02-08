@@ -2,7 +2,7 @@
 #include <cstdio>
 
 using namespace std;
-// /source-charset:utf-8
+// C++\\コマンドライン\\/source-charset:utf-8
 int main() {
 	char str[] = "韓国の食卓「キムタク」";
 	printf("%s", str);
