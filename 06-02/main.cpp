@@ -34,6 +34,9 @@ void LoadCSV() {
 			}
 		}
 		temporaryMap.push_back(row);
+
+		// 読み込み負荷をシミュレート（実際は不要）
+		std::this_thread::sleep_for(std::chrono::milliseconds(100));
 	}
 
 	// 読み終わったらメインに渡す
