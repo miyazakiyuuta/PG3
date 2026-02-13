@@ -1,11 +1,11 @@
 #pragma once
 
-class Weapon {
+class IWeapon {
 public:
-	Weapon(const char* weaponName);
-	virtual ~Weapon(){}
+	IWeapon(const char* weaponName);
+	virtual ~IWeapon(){}
 
-	virtual void Attack();
+	virtual void Attack() = 0;
 
 protected:
 	const char* name;

@@ -1,10 +1,10 @@
 #include "Weapon.h"
 #include <iostream>
 
-Weapon::Weapon(const char* weaponName) {
+IWeapon::IWeapon(const char* weaponName) {
 	name = weaponName;
 }
 
-void Weapon::Attack() {
+void IWeapon::Attack() {
 	printf("%s\n", name);
 }

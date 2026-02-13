@@ -4,7 +4,7 @@
 #include "Gun.h"
 
 int main() {
-	Weapon* weapons[3];
+	IWeapon* weapons[3];
 	for(int i = 0; i < 3; ++i) {
 		if(i % 2 == 0) {
 			weapons[i] = new Sword();
